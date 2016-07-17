@@ -6,6 +6,40 @@
 [![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
 [![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
 
+## Requirements
+* Laravel `^5.2` - Because of changed routing middleware and unsupported package `illuminate/html`
+
+### Laravel 5.1.11 users info!
+To use Quickadmin with Laravel Laravel 5.1.11 use branch `0.4.x`
+
+## Quick Admin installation
+
+###Please note: QuickAdmin requires fresh Laravel installation
+
+1. Configure your .env with the correct database information
+    *. database connection is required. Check your .env file
+   	*. create database
+2. Install the package via `composer require laraveldaily/quickadmin`.
+3. Run `php artisan quickadmin:install` and fill the required information.
+4. Run `php artisan key:generate`.
+5. Access QuickAdmin panel by visiting `http://yourdomain/admin`.
+
+
+## More information and detailed description
+[http://laraveldaily.com/packages/quickadmin/](http://laraveldaily.com/packages/quickadmin/)
+
+## License
+The MIT License (MIT). Please see [License File](license.md) for more information.
+
+
+
+
+
+
+
+
+
+
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, queueing, and caching.
 
 Laravel is accessible, yet powerful, providing tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
