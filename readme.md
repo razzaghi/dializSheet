@@ -14,14 +14,6 @@ To use Quickadmin with Laravel Laravel 5.1.11 use branch `0.4.x`
 
 ## Quick Admin installation
 
-### Requirements
-
-- PHP 5.5
-- Laravel
-- MySQL support requires `mysqldump` and `mysql` command-line binaries
-- PostgreSQL support requires `pg_dump` and `psql` command-line binaries
-- Gzip support requires `gzip` and `gunzip` command-line binaries
-
 ###Please note: QuickAdmin requires fresh Laravel installation
 
 - Configure your .env with the correct database information.
