@@ -2,7 +2,6 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Laraveldaily\Quickadmin\Models\Menu;
-use Laraveldaily\Quickadmin\Models\MenuRole;
 
 class UpdateMenusTable extends Migration
 {
@@ -31,16 +30,6 @@ class UpdateMenusTable extends Migration
                 'menu_type' => 1,
                 'icon'      => 'fa-database',
                 'parent_id' => 3,
-            ]
-        ]);
-        MenuRole::insert([
-            [
-                'menu_id'   => 3,
-                'role_id'   => 1,
-            ],
-            [
-                'menu_id'   => 4,
-                'role_id'   => 1,
             ]
         ]);
     }
