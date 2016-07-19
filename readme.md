@@ -1,7 +1,7 @@
 <html>
     <body>
         <div id="readme" class="readme boxed-group clearfix announce instapaper_body md">
-            <article class="markdown-body entry-content" itemprop="text">
+            <article class="markdown-body entry-content" itemprop="text"></article>
                 <h1>Laravel PHP Framework</h1>
 
             <h2>Requirements</h2>
