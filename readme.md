@@ -34,6 +34,8 @@ Revert All change file (if nothing change use)
 After update
 Run `php artisan migrate --path=database/dataFix`.
 ```
+## Set Access For Administrator
+
 
 ## More information and detailed description
 [http://laraveldaily.com/packages/quickadmin/](http://laraveldaily.com/packages/quickadmin/)
