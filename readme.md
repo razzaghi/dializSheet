@@ -24,8 +24,9 @@ To use Quickadmin with Laravel Laravel 5.1.11 use branch `0.4.x`
 - Install the package via `composer require laraveldaily/quickadmin`.
 - Run `php artisan quickadmin:install` and fill the required information.
 - Run `php artisan key:generate`.
-- Access QuickAdmin panel by visiting `http://yourdomain/admin`.
 - Run `php artisan migrate --path=database/dataFix`.
+- Access QuickAdmin panel by visiting `http://yourdomain/admin`.
+
 
 ## More information and detailed description
 [http://laraveldaily.com/packages/quickadmin/](http://laraveldaily.com/packages/quickadmin/)
