@@ -31,8 +31,8 @@ Revert All change file (if nothing change use)
 - Access QuickAdmin panel by visiting `http://yourdomain/admin`.
 
 ```php
-After update
-Run `php artisan migrate --path=database/dataFix`.
+After update Migration
+GoTo Menu and all permission
 ```
 ## Set Access For Administrator
 
