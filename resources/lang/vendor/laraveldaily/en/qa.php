@@ -2,12 +2,12 @@
 return [
 
   // logs-index
-  'logs-index-list' => 'List',
-  'logs-index-user' => 'User',
-  'logs-index-action' => 'Action',
-  'logs-index-action_model' => 'Action model',
-  'logs-index-action_id' => 'Action id',
-  'logs-index-time' => 'Time',
+  'logs-index-list' => 'لیست',
+  'logs-index-user' => 'کاربر',
+  'logs-index-action' => 'اقدام',
+  'logs-index-action_model' => 'روش اقدام',
+  'logs-index-action_id' => 'شناسه اقدام',
+  'logs-index-time' => 'زمان',
 
   // menus-createCrud
   'menus-createCrud-create_new_crud' => 'Create new CRUD menu item',

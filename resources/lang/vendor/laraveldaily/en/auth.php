@@ -3,25 +3,25 @@ return [
 
   // generic   
   'whoops'  => 'Oops !',
-  'some_problems_with_input' => 'there are some problems with input!',
+  'some_problems_with_input' => 'مشکلاتی برای ورود اطلاعات رخ داده است.',
 
   // auth-login
-  'login-login' => 'Login',
-  'login-email' => 'Email',
-  'login-password' => 'Password',
-  'login-remember_me' => 'Remember Me',
-  'login-btnlogin' => 'Log In',
+  'login-login' => 'ورود',
+  'login-email' => 'نام کاربری',
+  'login-password' => 'رمز عبور',
+  'login-remember_me' => 'مرا به خاطربسپار',
+  'login-btnlogin' => 'ورود',
 
   // auth-password
-  'password-reset_password' => 'Reset password',
-  'password-email' => 'Email',
-  'password-btnsend_password' => 'Send Password Reset Link',
+  'password-reset_password' => 'بازنشانی رمز عبور',
+  'password-email' => 'نام کاربری',
+  'password-btnsend_password' => 'ارسال لینک بازنشانی رمز عبور.',
 
   // auth-reset
-  'reset-reset_password' => 'Reset password',
-  'reset-email' => 'Email',
-  'reset-password' => 'Password',  
-  'reset-confirm_password' => 'Confirm password',  
-  'reset-btnreset_password' => 'Reset password',
+  'reset-reset_password' => 'باز نشانی رمز عبور',
+  'reset-email' => 'نام کاربری',
+  'reset-password' => 'رمز عبور',
+  'reset-confirm_password' => 'تایید رمز عبور',
+  'reset-btnreset_password' => 'باز نشانی رمز عبور',
 
 ];

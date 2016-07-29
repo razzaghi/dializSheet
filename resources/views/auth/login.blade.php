@@ -1,30 +1,37 @@
 @include('admin.partials.header')
-<div style="margin-top: 10%;"></div>
-<div class="container-fluid">
+<div class="container-fluid top-10 back-with full-height-content">
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">{{ trans('quickadmin::auth.login-login') }}</div>
-                <div class="panel-body">
-                    @if (count($errors) > 0)
-                        <div class="alert alert-danger">
-                            <strong>{{ trans('quickadmin::auth.whoops') }}</strong> {{ trans('quickadmin::auth.some_problems_with_input') }}
-                            <br><br>
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif
+        <div class="col-md-12 margin-top-20">
 
-                    <form class="form-horizontal"
-                          role="form"
-                          method="POST"
-                          action="{{ url('login') }}">
-                        <input type="hidden"
-                               name="_token"
-                               value="{{ csrf_token() }}">
+            @if (count($errors) > 0)
+                <div class="alert alert-danger">
+                    <strong>{{ trans('quickadmin::auth.whoops') }}</strong> {{ trans('quickadmin::auth.some_problems_with_input') }}
+                    <br><br>
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+
+            <form class="form-horizontal"
+                  role="form"
+                  method="POST"
+                  action="{{ url('login') }}">
+
+                <div class="row">
+
+                    <div class="col-md-4 col-lg-4 login-form">
+
+                        <h1>
+                            <b>
+                                Sign-in to eDializ
+                            </b>
+
+                        </h1>
+
+                        <br/>
 
                         <div class="form-group">
                             <label class="col-md-4 control-label">{{ trans('quickadmin::auth.login-email') }}</label>
@@ -65,9 +72,25 @@
                                 </button>
                             </div>
                         </div>
-                    </form>
+
+                    </div>
+
+                    <div class="col-md-8 col-lg-8">
+                        <img src="{{ url("quickadmin/")  }}/images/login-back.png" class="login-back" width=""/>
+                    </div>
+
+
+
                 </div>
-            </div>
+
+
+                <input type="hidden"
+                       name="_token"
+                       value="{{ csrf_token() }}">
+
+
+            </form>
+
         </div>
     </div>
 </div>

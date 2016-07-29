@@ -3,82 +3,82 @@
 return [
 
     // dashboard
-    'dashboard-title'                       => 'Welcome to your project dashboard',
+    'dashboard-title'                       => 'به سیستم دیالیز شیت خوش آمدید',
 
     // partials-header
-    'partials-header-title'                 => 'QuickAdmin en',
+    'partials-header-title'                 => 'سیستم دیالیز شیت',
 
     // partials-sidebar
-    'partials-sidebar-menu'                 => 'Menu',
-    'partials-sidebar-users'                => 'Users',
-    'partials-sidebar-roles'                => 'Roles',
-    'partials-sidebar-user-actions'         => 'User actions',
-    'partials-sidebar-logout'               => 'Logout',
+    'partials-sidebar-menu'                 => 'منو',
+    'partials-sidebar-users'                => 'کاربران',
+    'partials-sidebar-roles'                => 'نقش ها',
+    'partials-sidebar-user-actions'         => 'اقدامات کاربران',
+    'partials-sidebar-logout'               => 'خروج',
 
     // partials-topbar
-    'partials-topbar-title'                 => 'QuickAdmin en',
+    'partials-topbar-title'                 => 'سیستم دیالیز شیت',
 
     // users-create
-    'users-create-create_user'              => 'Create user',
-    'users-create-name'                     => 'Name',
-    'users-create-name_placeholder'         => 'Name',
-    'users-create-email'                    => 'Email',
-    'users-create-email_placeholder'        => 'Email',
-    'users-create-password'                 => 'Password',
-    'users-create-password_placeholder'     => 'Password',
-    'users-create-role'                     => 'Role',
-    'users-create-btncreate'                => 'Create',
+    'users-create-create_user'              => 'ساخت کاربر',
+    'users-create-name'                     => 'نام',
+    'users-create-name_placeholder'         => 'نام',
+    'users-create-email'                    => 'نام کاربری',
+    'users-create-email_placeholder'        => 'نام کاربری',
+    'users-create-password'                 => 'رمز عبور',
+    'users-create-password_placeholder'     => 'رمز عبور',
+    'users-create-role'                     => 'نقش',
+    'users-create-btncreate'                => 'ایجاد',
 
     // users-edit
-    'users-edit-edit_user'                  => 'Edit user',
-    'users-edit-name'                       => 'Name',
-    'users-edit-name_placeholder'           => 'Name',
-    'users-edit-email'                      => 'Email',
-    'users-edit-email_placeholder'          => 'Email',
-    'users-edit-password'                   => 'Password',
-    'users-edit-password_placeholder'       => 'Password',
-    'users-edit-role'                       => 'Role',
-    'users-edit-btnupdate'                  => 'Update',
+    'users-edit-edit_user'                  => 'ویرایش کاربر',
+    'users-edit-name'                       => 'نام',
+    'users-edit-name_placeholder'           => 'نام',
+    'users-edit-email'                      => 'نام کاربری',
+    'users-edit-email_placeholder'          => 'نام کاربری',
+    'users-edit-password'                   => 'رمز عبور',
+    'users-edit-password_placeholder'       => 'رمز عبور',
+    'users-edit-role'                       => 'نقش',
+    'users-edit-btnupdate'                  => 'بروز رسانی',
 
     // users-index
-    'users-index-add_new'                   => 'Add new',
-    'users-index-users_list'                => 'Users list',
-    'users-index-name'                      => 'Name',
-    'users-index-edit'                      => 'Edit',
-    'users-index-delete'                    => 'Delete',
-    'users-index-are_you_sure'              => 'Are you sure?',
-    'users-index-no_entries_found'          => 'No entries found',
+    'users-index-add_new'                   => 'ایجاد',
+    'users-index-users_list'                => 'لیست کاربران',
+    'users-index-name'                      => 'نام',
+    'users-index-edit'                      => 'ویرایش',
+    'users-index-delete'                    => 'حذف',
+    'users-index-are_you_sure'              => 'آیا شما مطمئن هستید؟',
+    'users-index-no_entries_found'          => 'اطلاعاتی یافت نشد',
 
     // users-controller
-    'users-controller-successfully_created' => 'User was successfully created!',
-    'users-controller-successfully_updated' => 'User was successfully updated!',
-    'users-controller-successfully_deleted' => 'User was successfully deleted!',
+    'users-controller-successfully_created' => 'کاربر با موفقیت ایجاد شد.',
+    'users-controller-successfully_updated' => 'عملیات ویرایش کاربر با موفقیت انجام شد.',
+    'users-controller-successfully_deleted' => 'کاربر با موفقیت حذف گردید',
 
     // roles-index
-    'roles-index-add_new'                   => 'Add new',
-    'roles-index-roles_list'                => 'Roles list',
-    'roles-index-title'                     => 'Title',
-    'roles-index-edit'                      => 'Edit',
-    'roles-index-delete'                    => 'Delete',
-    'roles-index-are_you_sure'              => 'Are you sure?',
-    'roles-index-no_entries_found'          => 'No entries found',
+    'roles-index-add_new'                   => 'ایجاد',
+    'roles-index-roles_list'                => 'لیست نقش ها',
+    'roles-index-title'                     => 'عنوان',
+    'roles-index-edit'                      => 'ویرایش',
+    'roles-index-delete'                    => 'حذف',
+    'roles-index-are_you_sure'              => 'آیا شما مطمئن هستید؟',
+    'roles-index-no_entries_found'          => 'اطلاعاتی یافت نشد.',
 
     // roles-create
-    'roles-create-create_role'              => 'Create role',
-    'roles-create-title'                    => 'Title',
-    'roles-create-title_placeholder'        => 'Title',
-    'roles-create-btncreate'                => 'Create',
+    'roles-create-create_role'              => 'ایجاد نقش',
+    'roles-create-title'                    => 'عنوان',
+    'roles-create-title_placeholder'        => 'عنوان',
+    'roles-create-btncreate'                => 'ایجاد',
 
     // roles-edit
-    'roles-edit-edit_role'                  => 'Edit role',
-    'roles-edit-title'                      => 'Title',
-    'roles-edit-title_placeholder'          => 'Title',
-    'roles-edit-btnupdate'                  => 'Update',
+    'roles-edit-edit_role'                  => 'به روز رسانی نقش',
+    'roles-edit-title'                      => 'عنوان',
+    'roles-edit-title_placeholder'          => 'عنوان',
+    'roles-edit-btnupdate'                  => 'به روزرسانی',
 
     // roles-controller
-    'roles-controller-successfully_created' => 'Role was successfully created!',
-    'roles-controller-successfully_updated' => 'Role was successfully updated!',
-    'roles-controller-successfully_deleted' => 'Role was successfully deleted!',
+    'roles-controller-successfully_created' => 'نقش با موفقیت ایجاد شد.',
+    'roles-controller-successfully_updated' => 'نقش با موفقیت به روزرسانی شد.',
+    'roles-controller-successfully_deleted' => 'نقش با موفقیت حذف گردید.',
 
 ];
 

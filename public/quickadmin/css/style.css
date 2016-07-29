@@ -1,0 +1,27 @@
+*:not(i) {
+    font-family: "WMitra" !important;
+}
+
+.back-with {
+    background-color: white;
+}
+
+.top-10{
+    position: relative;
+    margin-top:3%;
+    top:10%;
+}
+
+.login-back{
+    position: relative;
+    margin-top:5%;
+    top:5%;
+    right:15%;
+}
+
+.login-form{
+    position: relative;
+    margin-top:10%;
+    top:10%;
+    right:5%;
+}

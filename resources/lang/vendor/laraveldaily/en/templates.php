@@ -19,26 +19,26 @@ return [
   'templates-menu_field_line-comment_below_placeholder' => 'Optional additional comment below the field',
 
   // templates-customView_index
-  'templates-customView_index-list' => 'List',
+  'templates-customView_index-list' => 'لیست',
   'templates-customView_index-welcome_custom_view' => 'Welcome to your custom view',
 
   // templates-view_create
-  'templates-view_create-add_new' => 'Add new',
-  'templates-view_create-create' => 'Create',
+  'templates-view_create-add_new' => 'ایجاد جدید',
+  'templates-view_create-create' => 'ساخت',
 
   // templates-view_create
-  'templates-view_edit-edit' => 'Edit',
-  'templates-view_edit-update' => 'Update',
-  'templates-view_edit-cancel' => 'Cancel',
+  'templates-view_edit-edit' => 'ویرایش',
+  'templates-view_edit-update' => 'به روز رسانی',
+  'templates-view_edit-cancel' => 'لغو',
 
   // templates-view_index
-  'templates-view_index-add_new' => 'Add new',
-  'templates-view_index-list' => 'List',
-  'templates-view_index-edit' => 'Edit',
-  'templates-view_index-delete' => 'Delete',
-  'templates-view_index-delete_checked' => 'Delete checked',
-  'templates-view_index-confirm_deletion2' => 'Confirm deletion?',  
-  'templates-view_index-no_entries_found' => 'No entries found.',
-  'templates-view_index-are_you_sure' => 'Are you sure?',
+  'templates-view_index-add_new' => 'ایجاد جدید',
+  'templates-view_index-list' => 'لیست',
+  'templates-view_index-edit' => 'ویرایش',
+  'templates-view_index-delete' => 'حذف',
+  'templates-view_index-delete_checked' => 'حذف انتخابی ها',
+  'templates-view_index-confirm_deletion2' => 'تایید حذف؟',
+  'templates-view_index-no_entries_found' => 'اطلاعاتی یافت نشد',
+  'templates-view_index-are_you_sure' => 'آیا شما مطمئن هستید؟',
 
 ];
