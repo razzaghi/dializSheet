@@ -1,0 +1,9 @@
+{
+  "name": "eDializ",
+  "version": "0.0.1",
+  "description": "eDializ",
+  "private": true,
+  "dependencies": {
+    "highcharts": "^4.2.5"
+  }
+}
