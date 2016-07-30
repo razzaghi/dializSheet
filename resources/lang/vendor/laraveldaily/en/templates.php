@@ -28,6 +28,8 @@ return [
 
   // templates-view_create
   'templates-view_edit-edit' => 'ویرایش',
+  'templates-view_edit-patient-info' => 'اطاعات بیمار',
+  'templates-view_edit-patient-last-dializ' => 'اطلاعات آخرین دیالیز بیمار',
   'templates-view_edit-update' => 'به روز رسانی',
   'templates-view_edit-cancel' => 'لغو',
 
@@ -35,6 +37,7 @@ return [
   'templates-view_index-add_new' => 'ایجاد جدید',
   'templates-view_index-list' => 'لیست',
   'templates-view_index-edit' => 'ویرایش',
+  'templates-view_index-info' => 'اطلاعات',
   'templates-view_index-delete' => 'حذف',
   'templates-view_index-delete_checked' => 'حذف انتخابی ها',
   'templates-view_index-confirm_deletion2' => 'تایید حذف؟',

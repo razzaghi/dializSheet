@@ -78,6 +78,23 @@ class PatientController extends Controller
     }
 
     /**
+     * Show the form for editing the specified patient.
+     *
+     * @param  int $id
+     * @return \Illuminate\View\View
+     */
+    public function lastDializ($id)
+    {
+        $patient = Patient::find($id);
+        $gender = Gender::lists("title", "id")->prepend('Please select', '');
+        $maritalstatus = MaritalStatus::lists("title", "id")->prepend('Please select', '');
+        $occupation = Occupation::lists("title", "id")->prepend('Please select', '');
+
+
+        return view('admin.patient.lastDializ', compact('patient', "gender", "maritalstatus", "occupation"));
+    }
+
+    /**
      * Update the specified patient in storage.
      * @param UpdatePatientRequest|Request $request
      *
@@ -122,5 +139,7 @@ class PatientController extends Controller
 
         return redirect()->route('admin.patient.index');
     }
+
+
 
 }

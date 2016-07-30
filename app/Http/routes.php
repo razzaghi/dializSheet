@@ -14,3 +14,15 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('patient/lastDializ/{id}', [
+    'as' => 'lastDializ', 'uses' => 'Admin\PatientController@lastDializ'
+]);
+
+Route::get('admin/addmission/create/{id}', [
+    'as' => 'create', 'uses' => 'Admin\AddmissionController@create'
+]);
+
+Route::get('admin/addmission/{id}', [
+    'as' => 'index', 'uses' => 'Admin\AddmissionController@index'
+]);

@@ -3,10 +3,10 @@
 return [
 
     // dashboard
-    'dashboard-title'                       => 'به سیستم دیالیز شیت خوش آمدید',
+    'dashboard-title'                       => 'به eDializ خوش آمدید',
 
     // partials-header
-    'partials-header-title'                 => 'سیستم دیالیز شیت',
+    'partials-header-title'                 => 'سیستم eDializ',
 
     // partials-sidebar
     'partials-sidebar-menu'                 => 'منو',
@@ -16,7 +16,7 @@ return [
     'partials-sidebar-logout'               => 'خروج',
 
     // partials-topbar
-    'partials-topbar-title'                 => 'سیستم دیالیز شیت',
+    'partials-topbar-title'                 => 'سیستم eDializ',
 
     // users-create
     'users-create-create_user'              => 'ساخت کاربر',

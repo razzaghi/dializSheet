@@ -196,7 +196,13 @@ Page Header
 .page-header.navbar .top-menu {
     margin: 0;
     padding: 0;
-    float: right;
+    margin-top: 5px;
+    margin-left: 5px;
+    float: left;
+    min-height: 46px;
+    vertical-align: middle;
+    font-weight: bold;
+    color: #ffffff;
 }
 
 .page-header.navbar .top-menu .navbar-nav {
@@ -3068,6 +3074,10 @@ Page Loading
 
 .navbar-brand {
     color: #C5C5C5;
+    font-weight:bold;
+    background-color: #761c19;
+    min-width: 235px;
+    max-height: 46px;
 }
 
 .navbar-brand:hover {

@@ -2,7 +2,22 @@
 
 @section('content')
 
-    <p>{!! link_to_route('admin.patient.create', trans('quickadmin::templates.templates-view_index-add_new') , null, array('class' => 'btn btn-success')) !!}</p>
+    <h1>
+        مدیریت اطلاعات بیماران
+    </h1>
+
+    <br/>
+    <div class="row">
+        <div class="col-lg-1">{!! link_to_route('admin.patient.create', trans('quickadmin::templates.templates-view_index-add_new') , null, array('class' => 'btn btn-success')) !!}</div>
+        <div class="col-lg-1">
+            <button class="btn btn-danger" id="delete">
+                {{ trans('quickadmin::templates.templates-view_index-delete_checked') }}
+            </button>
+        </div>
+    </div>
+
+
+    <br/>
 
     @if ($patient->count())
         <div class="portlet box green">
@@ -16,14 +31,14 @@
                         <th>
                             {!! Form::checkbox('delete_all',1,false,['class' => 'mass']) !!}
                         </th>
-                        <th>Unit Number</th>
-                        <th>Family</th>
-                        <th>Name</th>
-                        <th>Father Name</th>
-                        <th>Marital Status</th>
-                        <th>Occuption</th>
-                        <th>Phone Number</th>
-                        <th>Phone Number Of Reffered</th>
+                        <th>شماره پرونده</th>
+                        <th>فامیلی</th>
+                        <th>نام</th>
+                        <th>نام پدر</th>
+                        <th>وضعیت ازدواج</th>
+                        <th>شغل</th>
+                        <th>تلفن</th>
+                        <th>تلفن همراه</th>
 
                         <th>&nbsp;</th>
                     </tr>
@@ -45,7 +60,7 @@
                             <td>{{ $row->phoneOfReffered }}</td>
 
                             <td>
-                                {!! link_to_route('admin.patient.edit', trans('quickadmin::templates.templates-view_index-edit'), array($row->id), array('class' => 'btn btn-xs btn-info')) !!}
+                                {!! link_to_route('admin.patient.edit', trans('quickadmin::templates.templates-view_index-info'), array($row->id), array('class' => 'btn btn-xs btn-info')) !!}
                                 {!! Form::open(array('style' => 'display: inline-block;', 'method' => 'DELETE', 'onsubmit' => "return confirm('".trans("quickadmin::templates.templates-view_index-are_you_sure")."');",  'route' => array('admin.patient.destroy', $row->id))) !!}
                                 {!! Form::submit(trans('quickadmin::templates.templates-view_index-delete'), array('class' => 'btn btn-xs btn-danger')) !!}
                                 {!! Form::close() !!}
@@ -54,13 +69,7 @@
                     @endforeach
                     </tbody>
                 </table>
-                <div class="row">
-                    <div class="col-xs-12">
-                        <button class="btn btn-danger" id="delete">
-                            {{ trans('quickadmin::templates.templates-view_index-delete_checked') }}
-                        </button>
-                    </div>
-                </div>
+
                 {!! Form::open(['route' => 'admin.patient.massDelete', 'method' => 'post', 'id' => 'massDelete']) !!}
                 <input type="hidden" id="send" name="toDelete">
                 {!! Form::close() !!}

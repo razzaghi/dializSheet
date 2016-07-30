@@ -1,5 +1,5 @@
 @include('admin.partials.header')
-<div class="container-fluid top-10 back-with full-height-content">
+<div class="container-fluid top-10 back-with login-img height100">
     <div class="row">
         <div class="col-md-12 margin-top-20">
 
@@ -26,7 +26,7 @@
 
                         <h1>
                             <b>
-                                Sign-in to eDializ
+ورود به eDializ
                             </b>
 
                         </h1>
@@ -75,8 +75,15 @@
 
                     </div>
 
-                    <div class="col-md-8 col-lg-8">
-                        <img src="{{ url("quickadmin/")  }}/images/login-back.png" class="login-back" width=""/>
+                    <div class="col-md-8 col-lg-8 login-back">
+
+                        <h1>
+آریا طب
+                        </h1>
+
+                        <p class="col-lg-7 about-login">
+                            شركت مهندسي پزشكي آریا طب، سومين دهه از فعاليت خود در زمينه ي طراحي و توليد تجهيزات دیالیز را در حالي آغاز مي كند كه طي اين سالها ،يكي از مهمترين دغدغه هاي شركت، ارائه محصولات با كيفيت بالا،جهت رضايت و اطمينان خاطر همكاران دیالیز در مراکز مختلف درمانی بوده است.خداوند را شاكريم كه تلاش و پشتكار ديروز ،رضايت خاطر امروز شما همكاران را برايمان به ارمغان آورده است و مطمئنيم كه اين رضايتمندي، مسئوليت فردايمان را سنگين تر از قبل خواهد نمود.
+                        </p>
                     </div>
 
 

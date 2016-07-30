@@ -16,7 +16,7 @@
                         <th>
                             {!! Form::checkbox('delete_all',1,false,['class' => 'mass']) !!}
                         </th>
-                        <th>Title</th>
+                        <th>عنوان</th>
 
                         <th>&nbsp;</th>
                     </tr>

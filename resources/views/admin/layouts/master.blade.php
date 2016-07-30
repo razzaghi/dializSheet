@@ -8,10 +8,6 @@
     <div class="page-content-wrapper">
         <div class="page-content">
 
-            <h3 class="page-title">
-                <b>eDializ System</b>
-            </h3>
-
             <div class="row">
                 <div class="col-md-12">
 
