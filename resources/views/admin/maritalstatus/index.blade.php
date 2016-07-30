@@ -2,22 +2,24 @@
 
 @section('content')
 
-<p>
-    {!! link_to_route('admin.maritalstatus.create', trans('quickadmin::templates.templates-view_index-add_new') , null, array('class' => 'btn btn-success')) !!}
+    <p>
+        {!! link_to_route('admin.maritalstatus.create', trans('quickadmin::templates.templates-view_index-add_new') , null, array('class' => 'btn btn-success')) !!}
 
-    <button class="btn btn-danger" id="delete">
-        {{ trans('quickadmin::templates.templates-view_index-delete_checked') }}
-    </button>
-</p>
+        @if ($maritalstatus->count())
+            <button class="btn btn-danger" id="delete">
+                {{ trans('quickadmin::templates.templates-view_index-delete_checked') }}
+            </button>
+        @endif
+    </p>
 
-@if ($maritalstatus->count())
-    <div class="portlet box green">
-        <div class="portlet-title">
-            <div class="caption">{{ trans('quickadmin::templates.templates-view_index-list') }}</div>
-        </div>
-        <div class="portlet-body">
-            <table class="table table-striped table-hover table-responsive datatable" id="datatable">
-                <thead>
+    @if ($maritalstatus->count())
+        <div class="portlet box green">
+            <div class="portlet-title">
+                <div class="caption">{{ trans('quickadmin::templates.templates-view_index-list') }}</div>
+            </div>
+            <div class="portlet-body">
+                <table class="table table-striped table-hover table-responsive datatable" id="datatable">
+                    <thead>
                     <tr>
                         <th>
                             {!! Form::checkbox('delete_all',1,false,['class' => 'mass']) !!}
@@ -26,9 +28,9 @@
 
                         <th>&nbsp;</th>
                     </tr>
-                </thead>
+                    </thead>
 
-                <tbody>
+                    <tbody>
                     @foreach ($maritalstatus as $row)
                         <tr>
                             <td>
@@ -44,17 +46,17 @@
                             </td>
                         </tr>
                     @endforeach
-                </tbody>
-            </table>
+                    </tbody>
+                </table>
 
-            {!! Form::open(['route' => 'admin.maritalstatus.massDelete', 'method' => 'post', 'id' => 'massDelete']) !!}
+                {!! Form::open(['route' => 'admin.maritalstatus.massDelete', 'method' => 'post', 'id' => 'massDelete']) !!}
                 <input type="hidden" id="send" name="toDelete">
-            {!! Form::close() !!}
+                {!! Form::close() !!}
+            </div>
         </div>
-	</div>
-@else
-    {{ trans('quickadmin::templates.templates-view_index-no_entries_found') }}
-@endif
+    @else
+        {{ trans('quickadmin::templates.templates-view_index-no_entries_found') }}
+    @endif
 
 @endsection
 

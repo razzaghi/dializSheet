@@ -23,7 +23,7 @@ return [
   'templates-customView_index-welcome_custom_view' => 'Welcome to your custom view',
 
   // templates-view_create
-  'templates-view_create-add_new' => 'ایجاد جدید',
+  'templates-view_create-add_new' => 'ایجاد',
   'templates-view_create-create' => 'ساخت',
 
   // templates-view_create
@@ -34,7 +34,7 @@ return [
   'templates-view_edit-cancel' => 'لغو',
 
   // templates-view_index
-  'templates-view_index-add_new' => 'ایجاد جدید',
+  'templates-view_index-add_new' => 'ایجاد',
   'templates-view_index-list' => 'لیست',
   'templates-view_index-edit' => 'ویرایش',
   'templates-view_index-info' => 'اطلاعات',

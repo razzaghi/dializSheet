@@ -2,7 +2,14 @@
 
 @section('content')
 
-<p>{!! link_to_route('admin.occupation.create', trans('quickadmin::templates.templates-view_index-add_new') , null, array('class' => 'btn btn-success')) !!}</p>
+<p>
+    {!! link_to_route('admin.occupation.create', trans('quickadmin::templates.templates-view_index-add_new') , null, array('class' => 'btn btn-success')) !!}
+    @if ($occupation->count())
+        <button class="btn btn-danger" id="delete">
+            {{ trans('quickadmin::templates.templates-view_index-delete_checked') }}
+        </button>
+    @endif
+</p>
 
 @if ($occupation->count())
     <div class="portlet box green">
@@ -16,7 +23,7 @@
                         <th>
                             {!! Form::checkbox('delete_all',1,false,['class' => 'mass']) !!}
                         </th>
-                        <th>Title</th>
+                        <th>عنوان</th>
 
                         <th>&nbsp;</th>
                     </tr>
@@ -40,13 +47,7 @@
                     @endforeach
                 </tbody>
             </table>
-            <div class="row">
-                <div class="col-xs-12">
-                    <button class="btn btn-danger" id="delete">
-                        {{ trans('quickadmin::templates.templates-view_index-delete_checked') }}
-                    </button>
-                </div>
-            </div>
+
             {!! Form::open(['route' => 'admin.occupation.massDelete', 'method' => 'post', 'id' => 'massDelete']) !!}
                 <input type="hidden" id="send" name="toDelete">
             {!! Form::close() !!}

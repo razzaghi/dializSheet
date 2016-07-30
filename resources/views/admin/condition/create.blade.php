@@ -6,6 +6,7 @@
     <div class="col-sm-10 col-sm-offset-2">
         <h1>{{ trans('quickadmin::templates.templates-view_create-add_new') }}</h1>
 
+        <br/>
         @if ($errors->any())
         	<div class="alert alert-danger">
         	    <ul>
@@ -19,10 +20,10 @@
 {!! Form::open(array('route' => 'admin.condition.store', 'id' => 'form-with-validation', 'class' => 'form-horizontal')) !!}
 
 <div class="form-group">
-    {!! Form::label('title', 'Title*', array('class'=>'col-sm-2 control-label')) !!}
+    {!! Form::label('title', 'عنوان *', array('class'=>'col-sm-2 control-label')) !!}
     <div class="col-sm-10">
         {!! Form::text('title', old('title'), array('class'=>'form-control')) !!}
-        <p class="help-block">Insert Title Name</p>
+        <p class="help-block">عنوان </p>
     </div>
 </div>
 

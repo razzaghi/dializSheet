@@ -6,6 +6,7 @@
     <div class="col-sm-10 col-sm-offset-2">
         <h1>{{ trans('quickadmin::templates.templates-view_edit-edit') }}</h1>
 
+        <br/>
         @if ($errors->any())
         	<div class="alert alert-danger">
         	    <ul>
@@ -19,7 +20,7 @@
 {!! Form::model($introductionletter, array('class' => 'form-horizontal', 'id' => 'form-with-validation', 'method' => 'PATCH', 'route' => array('admin.introductionletter.update', $introductionletter->id))) !!}
 
 <div class="form-group">
-    {!! Form::label('title', 'Title*', array('class'=>'col-sm-2 control-label')) !!}
+    {!! Form::label('title', 'عنوان *', array('class'=>'col-sm-2 control-label')) !!}
     <div class="col-sm-10">
         {!! Form::text('title', old('title',$introductionletter->title), array('class'=>'form-control')) !!}
         
