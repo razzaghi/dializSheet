@@ -14,93 +14,100 @@ use App\Patient;
 use App\Nurse;
 
 
-class NurseAttentionController extends Controller {
+class NurseAttentionController extends Controller
+{
 
-	/**
-	 * Display a listing of nurseattention
-	 *
+    /**
+     * Display a listing of nurseattention
+     *
      * @param Request $request
      *
      * @return \Illuminate\View\View
-	 */
-	public function index(Request $request)
+     */
+    public function index(Request $request, $id)
     {
         $nurseattention = NurseAttention::with("patient")->with("nurse")->get();
 
-		return view('admin.nurseattention.index', compact('nurseattention'));
-	}
+        $patient = Patient::find($id);
 
-	/**
-	 * Show the form for creating a new nurseattention
-	 *
+        return view('admin.nurseattention.index', compact('nurseattention', 'patient', 'id'));
+    }
+
+    /**
+     * Show the form for creating a new nurseattention
+     *
      * @return \Illuminate\View\View
-	 */
-	public function create()
-	{
-	    $patient = Patient::lists("family", "id")->prepend('Please select', '');
-$nurse = Nurse::lists("family", "id")->prepend('Please select', '');
+     */
+    public function create($id)
+    {
+        $patient = Patient::lists("family", "id")->prepend('Please select', '');
+        $nurse = Nurse::lists("family", "id")->prepend('Please select', '');
 
-	    
-	    return view('admin.nurseattention.create', compact("patient", "nurse"));
-	}
 
-	/**
-	 * Store a newly created nurseattention in storage.
-	 *
+        return view('admin.nurseattention.create', compact("patient", "nurse",'id'));
+    }
+
+    /**
+     * Store a newly created nurseattention in storage.
+     *
      * @param CreateNurseAttentionRequest|Request $request
-	 */
-	public function store(CreateNurseAttentionRequest $request)
-	{
-	    
-		NurseAttention::create($request->all());
+     */
+    public function store(CreateNurseAttentionRequest $request)
+    {
 
-		return redirect()->route('admin.nurseattention.index');
-	}
+        NurseAttention::create($request->all());
 
-	/**
-	 * Show the form for editing the specified nurseattention.
-	 *
-	 * @param  int  $id
+        $id = $request->get("patient_id");
+
+        return redirect("admin/nurseattention/index/".$id);
+
+    }
+
+    /**
+     * Show the form for editing the specified nurseattention.
+     *
+     * @param  int $id
      * @return \Illuminate\View\View
-	 */
-	public function edit($id)
-	{
-		$nurseattention = NurseAttention::find($id);
-	    $patient = Patient::lists("family", "id")->prepend('Please select', '');
-$nurse = Nurse::lists("family", "id")->prepend('Please select', '');
+     */
+    public function edit($id)
+    {
+        $nurseattention = NurseAttention::find($id);
+        $patient = Patient::lists("family", "id")->prepend('Please select', '');
+        $nurse = Nurse::lists("family", "id")->prepend('Please select', '');
 
-	    
-		return view('admin.nurseattention.edit', compact('nurseattention', "patient", "nurse"));
-	}
 
-	/**
-	 * Update the specified nurseattention in storage.
+        return view('admin.nurseattention.edit', compact('nurseattention', "patient", "nurse"));
+    }
+
+    /**
+     * Update the specified nurseattention in storage.
      * @param UpdateNurseAttentionRequest|Request $request
      *
-	 * @param  int  $id
-	 */
-	public function update($id, UpdateNurseAttentionRequest $request)
-	{
-		$nurseattention = NurseAttention::findOrFail($id);
+     * @param  int $id
+     */
+    public function update($id, UpdateNurseAttentionRequest $request)
+    {
+        $nurseattention = NurseAttention::findOrFail($id);
 
-        
+        $nurseattention->update($request->all());
 
-		$nurseattention->update($request->all());
+        $id = $request->get("patient_id");
 
-		return redirect()->route('admin.nurseattention.index');
-	}
+        return redirect("admin/nurseattention/index/".$id);
 
-	/**
-	 * Remove the specified nurseattention from storage.
-	 *
-	 * @param  int  $id
-	 */
-	public function destroy($id)
-	{
-		NurseAttention::destroy($id);
+    }
 
-		return redirect()->route('admin.nurseattention.index');
-	}
+    /**
+     * Remove the specified nurseattention from storage.
+     *
+     * @param  int $id
+     */
+    public function destroy($id)
+    {
+        NurseAttention::destroy($id);
+
+        return redirect("admin/nurseattention/index/".$id);
+    }
 
     /**
      * Mass delete function from index page
@@ -117,7 +124,8 @@ $nurse = Nurse::lists("family", "id")->prepend('Please select', '');
             NurseAttention::whereNotNull('id')->delete();
         }
 
-        return redirect()->route('admin.nurseattention.index');
+        $id = $request->get('patientId');
+        return redirect("admin/nurseattention/index/".$id);
     }
 
 }

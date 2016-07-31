@@ -3,8 +3,7 @@
 @section('content')
 
     <h1>
-
-        ملاحظات پرستاری بیمار
+        مدیریت اطلاعات پذیرش بیمار
 
     </h1>
 
@@ -99,9 +98,9 @@
         </div>
     </div>
 
-    <a href="/admin/nurseattention/create/{{ $id  }}" class="btn btn-primary">ثبت ملاحظات جدید</a>
+    <a href="/admin/description/create/{{ $id  }}" class="btn btn-primary">ثبت شرح حال</a>
 
-    @if ($nurseattention->count())
+    @if ($description->count())
         <button class="btn btn-danger" id="delete">
             {{ trans('quickadmin::templates.templates-view_index-delete_checked') }}
         </button>
@@ -110,7 +109,7 @@
     <br/>
     <br/>
 
-    @if ($nurseattention->count())
+    @if ($description->count())
         <div class="portlet box green">
             <div class="portlet-title">
                 <div class="caption">{{ trans('quickadmin::templates.templates-view_index-list') }}</div>
@@ -123,26 +122,34 @@
                             {!! Form::checkbox('delete_all',1,false,['class' => 'mass']) !!}
                         </th>
                         <th>بیمار</th>
-                        <th>زمان و تاریخ ملاحظه</th>
-                        <th>پرستار</th>
+                        <th>نشانه های فعلی بیمار</th>
+                        <th>تاریخچه بیماری های فعلی</th>
+                        <th>تاریخچه بیماری های قبلی</th>
+                        <th>داروهای در حال مصرف و سایر اعتیادات</th>
+                        <th>حساسیت به</th>
+                        <th>سوابق فامیلی</th>
 
                         <th>&nbsp;</th>
                     </tr>
                     </thead>
 
                     <tbody>
-                    @foreach ($nurseattention as $row)
+                    @foreach ($description as $row)
                         <tr>
                             <td>
                                 {!! Form::checkbox('del-'.$row->id,1,false,['class' => 'single','data-id'=> $row->id]) !!}
                             </td>
                             <td>{{ isset($row->patient->family) ? $row->patient->family : '' }}</td>
-                            <td>{{ $row->dateTimeAtt }}</td>
-                            <td>{{ isset($row->nurse->family) ? $row->nurse->family : '' }}</td>
+                            <td>{{ $row->presentingSymptoms }}</td>
+                            <td>{{ $row->historyPeresentIllness }}</td>
+                            <td>{{ $row->pastDiseaseHistory }}</td>
+                            <td>{{ $row->currentDrugtherapy }}</td>
+                            <td>{{ $row->allergyTo }}</td>
+                            <td>{{ $row->familyHistory }}</td>
 
                             <td>
-                                {!! link_to_route('admin.nurseattention.edit', trans('quickadmin::templates.templates-view_index-edit'), array($row->id), array('class' => 'btn btn-xs btn-info')) !!}
-                                {!! Form::open(array('style' => 'display: inline-block;', 'method' => 'DELETE', 'onsubmit' => "return confirm('".trans("quickadmin::templates.templates-view_index-are_you_sure")."');",  'route' => array('admin.nurseattention.destroy', $row->id))) !!}
+                                {!! link_to_route('admin.description.edit', trans('quickadmin::templates.templates-view_index-edit'), array($row->id), array('class' => 'btn btn-xs btn-info')) !!}
+                                {!! Form::open(array('style' => 'display: inline-block;', 'method' => 'DELETE', 'onsubmit' => "return confirm('".trans("quickadmin::templates.templates-view_index-are_you_sure")."');",  'route' => array('admin.description.destroy', $row->id))) !!}
                                 {!! Form::submit(trans('quickadmin::templates.templates-view_index-delete'), array('class' => 'btn btn-xs btn-danger')) !!}
                                 {!! Form::close() !!}
                             </td>
@@ -150,7 +157,8 @@
                     @endforeach
                     </tbody>
                 </table>
-                {!! Form::open(['route' => 'admin.nurseattention.massDelete', 'method' => 'post', 'id' => 'massDelete']) !!}
+
+                {!! Form::open(['route' => 'admin.description.massDelete', 'method' => 'post', 'id' => 'massDelete']) !!}
                 <input type="hidden" id="send" name="toDelete">
                 <input type="hidden" id="patientId" name="patientId" value="{{$id}}">
                 {!! Form::close() !!}

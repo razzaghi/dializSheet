@@ -221,14 +221,14 @@
                 </tr>
                 <tr>
                     <td>
-                        <a href="/patient/lastDializ/{{ $patient->id  }}" class="btn btn-primary btn-md">شرح حال</a>
+                        <a href="/admin/description/{{ $patient->id  }}" class="btn btn-primary btn-md">شرح حال</a>
                         <a href="/patient/lastDializ/{{ $patient->id  }}" class="btn btn-primary btn-md">آخرین دیالیز</a>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <a href="/admin/addmission/{{ $patient->id  }}" class="btn btn-primary btn-md">دستورات پزشک</a>
-                        <a href="/admin/addmission/{{ $patient->id  }}" class="btn btn-primary btn-md"> ملاحضات پرستاری </a>
+                        <a href="/admin/doctororders/{{ $patient->id  }}" class="btn btn-primary btn-md">دستورات پزشک</a>
+                        <a href="/admin/nurseattention/{{ $patient->id  }}" class="btn btn-primary btn-md"> ملاحضات پرستاری </a>
 
                     </td>
                 </tr>

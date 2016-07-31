@@ -2,12 +2,14 @@
 
 namespace App;
 
+use Faker\Provider\zh_TW\DateTime;
 use Illuminate\Database\Eloquent\Model;
 use Laraveldaily\Quickadmin\Observers\UserActionsObserver;
 
 use Carbon\Carbon; 
 
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Morilog\Jalali\jDateTime;
 
 class NurseAttention extends Model {
 
@@ -57,8 +59,13 @@ class NurseAttention extends Model {
      */
     public function setDateTimeAttAttribute($input)
     {
+
+//        toGregorian($jYear, $jMonth, $jDay)
+        $date = explode("-",$input);
+        $dres = implode("-",jDateTime::toGregorian($date[0], $date[1], $date[2]))." 00:00:00";
+
         if($input != '') {
-            $this->attributes['dateTimeAtt'] = Carbon::createFromFormat(config('quickadmin.date_format') . ' ' . config('quickadmin.time_format'), $input)->format('Y-m-d H:i:s');
+            $this->attributes['dateTimeAtt'] = Carbon::createFromFormat(config('quickadmin.date_format') . ' ' . config('quickadmin.time_format'), $dres)->format('Y-m-d H:i:s');
         }else{
             $this->attributes['dateTimeAtt'] = '';
         }
@@ -72,8 +79,14 @@ class NurseAttention extends Model {
      */
     public function getDateTimeAttAttribute($input)
     {
+        $dateArr1 = explode(" ",$input);
+//        print_r($dateArr1);
+        $dateArr2 =  explode("-",$dateArr1[0]);
+        $date = implode("-",jDateTime::toJalali($dateArr2[0],$dateArr2[1],$dateArr2[2]));
+
         if($input != '0000-00-00') {
-            return Carbon::createFromFormat('Y-m-d H:i:s', $input)->format(config('quickadmin.date_format') . ' ' .config('quickadmin.time_format'));
+            $dateArr = Carbon::createFromFormat('Y-m-d H:i:s', $input)->format(config('quickadmin.date_format') . ' ' .config('quickadmin.time_format'));
+            return $date;
         }else{
             return '';
         }

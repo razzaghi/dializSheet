@@ -21,7 +21,7 @@
 <div class="form-group">
     {!! Form::label('patient_id', 'بیمار*', array('class'=>'col-sm-2 control-label')) !!}
     <div class="col-sm-10">
-        {!! Form::select('patient_id', $patient, old('patient_id'), array('class'=>'form-control')) !!}
+        {!! Form::select('patient_id', $patient, old('patient_id',$id), array('class'=>'form-control')) !!}
         
     </div>
 </div><div class="form-group">
