@@ -25,11 +25,11 @@
         dateFormat: "{{ config('quickadmin.date_format_jquery') }}"
     });
 
-    {{--$('.datetimepicker').datetimepicker({--}}
-    {{--autoclose: true,--}}
-    {{--dateFormat: "{{ config('quickadmin.date_format_jquery') }}",--}}
-    {{--timeFormat: "{{ config('quickadmin.time_format_jquery') }}"--}}
-    {{--});--}}
+    $('.datetimepicker').datepicker({
+        autoclose: true,
+        dateFormat: "{{ config('quickadmin.date_format_jquery') }}",
+        timeFormat: "{{ config('quickadmin.time_format_jquery') }}"
+    });
 
 
     $(function () {

@@ -2,6 +2,7 @@
 
 @section('content')
 
+    <br/>
     <h1>{{ trans('quickadmin::admin.dashboard-title') }}</h1>
 
     <br/>

@@ -221,14 +221,15 @@
                 </tr>
                 <tr>
                     <td>
-                        <a href="/patient/lastDializ/{{ $patient->id  }}" class="btn btn-primary btn-md"> گزارش آخرین
-                            دیالیز بیمار </a>
+                        <a href="/patient/lastDializ/{{ $patient->id  }}" class="btn btn-primary btn-md">شرح حال</a>
+                        <a href="/patient/lastDializ/{{ $patient->id  }}" class="btn btn-primary btn-md">آخرین دیالیز</a>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <a href="/admin/addmission/{{ $patient->id  }}" class="btn btn-primary btn-md">  دیالیز شیت <i
-                                    class="fa fa-pencil"></i></a>
+                        <a href="/admin/addmission/{{ $patient->id  }}" class="btn btn-primary btn-md">دستورات پزشک</a>
+                        <a href="/admin/addmission/{{ $patient->id  }}" class="btn btn-primary btn-md"> ملاحضات پرستاری </a>
+
                     </td>
                 </tr>
                 <tr>
@@ -245,13 +246,15 @@
                 </tr>
                 <tr>
                     <td>
-                        <a href="/admin/addmission/{{ $patient->id  }}" class="btn btn-primary btn-md"> ملاحضات پرستاری </a>
+
+                        <a href="/admin/addmission/{{ $patient->id  }}" class="btn btn-primary btn-md">آزمایش یک ساله</a>
                         <a href="/admin/addmission/{{ $patient->id  }}" class="btn btn-primary btn-md">  آزمایش شش ماهه </a>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <a href="/admin/addmission/{{ $patient->id  }}" class="btn btn-primary btn-md"> وضعیت عمومی بیمار </a>
+                        <a href="/admin/addmission/{{ $patient->id  }}" class="btn btn-primary btn-md">ارزیابی کفالت دیالیز</a>
+                        <a href="/admin/addmission/{{ $patient->id  }}" class="btn btn-primary btn-md">وضعیت عمومی</a>
                     </td>
                 </tr>
                 <tr>
