@@ -73,3 +73,9 @@ label,h1,h2,h3,h4,h5,h6 {
 .padding0 {
     padding: 0 !important;
 }
+
+.patient-toolbar {
+    position: absolute !important;
+    top: 50px;
+    left:10px;
+}

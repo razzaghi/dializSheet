@@ -98,51 +98,56 @@
         </div>
     </div>
 
-    <a href="/admin/addmission/create/{{ $id  }}" class="btn btn-primary"  >ثبت پذیرش جدید</a>
+    <a href="/admin/addmission/create/{{ $id  }}" class="btn btn-primary">ثبت پذیرش جدید</a>
 
+    @if ($addmission->count())
+        <button class="btn btn-danger" id="delete">
+            {{ trans('quickadmin::templates.templates-view_index-delete_checked') }}
+        </button>
+    @endif
     <br/>
     <br/>
-@if ($addmission->count())
-    <div class="portlet box green">
-        <div class="portlet-title">
-            <div class="caption">{{ trans('quickadmin::templates.templates-view_index-list') }}</div>
-        </div>
-        <div class="portlet-body">
-            <table class="table table-striped table-hover table-responsive datatable" id="datatable">
-                <thead>
+    @if ($addmission->count())
+        <div class="portlet box green">
+            <div class="portlet-title">
+                <div class="caption">{{ trans('quickadmin::templates.templates-view_index-list') }}</div>
+            </div>
+            <div class="portlet-body">
+                <table class="table table-striped table-hover table-responsive datatable" id="datatable">
+                    <thead>
                     <tr>
                         <th>
                             {!! Form::checkbox('delete_all',1,false,['class' => 'mass']) !!}
                         </th>
                         <th>نام بیمار</th>
-<th>تاریخ پذیرش</th>
-<th>بخش</th>
-<th>پزشک بستری کننده</th>
-<th>نوع پذیرش</th>
-<th>نوع بیمه</th>
-<th>شماره بیمه</th>
-<th>اتاق</th>
-<th>تخت</th>
+                        <th>تاریخ پذیرش</th>
+                        <th>بخش</th>
+                        <th>پزشک بستری کننده</th>
+                        <th>نوع پذیرش</th>
+                        <th>نوع بیمه</th>
+                        <th>شماره بیمه</th>
+                        <th>اتاق</th>
+                        <th>تخت</th>
 
                         <th>&nbsp;</th>
                     </tr>
-                </thead>
+                    </thead>
 
-                <tbody>
+                    <tbody>
                     @foreach ($addmission as $row)
                         <tr>
                             <td>
                                 {!! Form::checkbox('del-'.$row->id,1,false,['class' => 'single','data-id'=> $row->id]) !!}
                             </td>
                             <td>{{ isset($row->patient->family) ? $row->patient->family : '' }}</td>
-<td>{{ $row->addmissionDate }}</td>
-<td>{{ $row->ward }}</td>
-<td>{{ $row->doctor }}</td>
-<td>{{ $row->addmissionType }}</td>
-<td>{{ $row->insuranceType }}</td>
-<td>{{ $row->insuranceNumber }}</td>
-<td>{{ $row->room }}</td>
-<td>{{ $row->bed }}</td>
+                            <td>{{ $row->addmissionDate }}</td>
+                            <td>{{ $row->ward }}</td>
+                            <td>{{ $row->doctor }}</td>
+                            <td>{{ $row->addmissionType }}</td>
+                            <td>{{ $row->insuranceType }}</td>
+                            <td>{{ $row->insuranceNumber }}</td>
+                            <td>{{ $row->room }}</td>
+                            <td>{{ $row->bed }}</td>
 
                             <td>
                                 {!! link_to_route('admin.addmission.edit', trans('quickadmin::templates.templates-view_index-edit'), array($row->id), array('class' => 'btn btn-xs btn-info')) !!}
@@ -152,23 +157,18 @@
                             </td>
                         </tr>
                     @endforeach
-                </tbody>
-            </table>
-            <div class="row">
-                <div class="col-xs-12">
-                    <button class="btn btn-danger" id="delete">
-                        {{ trans('quickadmin::templates.templates-view_index-delete_checked') }}
-                    </button>
-                </div>
-            </div>
-            {!! Form::open(['route' => 'admin.addmission.massDelete', 'method' => 'post', 'id' => 'massDelete']) !!}
+                    </tbody>
+                </table>
+
+                {!! Form::open(['route' => 'admin.addmission.massDelete', 'method' => 'post', 'id' => 'massDelete']) !!}
                 <input type="hidden" id="send" name="toDelete">
-            {!! Form::close() !!}
+                <input type="hidden" id="patientId" name="patientId" value="{{$id}}">
+                {!! Form::close() !!}
+            </div>
         </div>
-	</div>
-@else
-    {{ trans('quickadmin::templates.templates-view_index-no_entries_found') }}
-@endif
+    @else
+        {{ trans('quickadmin::templates.templates-view_index-no_entries_found') }}
+    @endif
 
 @endsection
 

@@ -106,7 +106,8 @@ class NurseAttentionController extends Controller
     {
         NurseAttention::destroy($id);
 
-        return redirect("admin/nurseattention/index/".$id);
+        $nurse = NurseAttention::find($id);
+        return redirect("admin/nurseattention/index/".$nurse->patient_id);
     }
 
     /**

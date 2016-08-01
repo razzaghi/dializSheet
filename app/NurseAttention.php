@@ -60,7 +60,6 @@ class NurseAttention extends Model {
     public function setDateTimeAttAttribute($input)
     {
 
-//        toGregorian($jYear, $jMonth, $jDay)
         $date = explode("-",$input);
         $dres = implode("-",jDateTime::toGregorian($date[0], $date[1], $date[2]))." 00:00:00";
 
@@ -80,7 +79,6 @@ class NurseAttention extends Model {
     public function getDateTimeAttAttribute($input)
     {
         $dateArr1 = explode(" ",$input);
-//        print_r($dateArr1);
         $dateArr2 =  explode("-",$dateArr1[0]);
         $date = implode("-",jDateTime::toJalali($dateArr2[0],$dateArr2[1],$dateArr2[2]));
 

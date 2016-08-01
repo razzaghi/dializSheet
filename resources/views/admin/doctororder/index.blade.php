@@ -2,14 +2,115 @@
 
 @section('content')
 
-    <p>
-        {!! link_to_route('admin.doctororder.create', trans('quickadmin::templates.templates-view_index-add_new') , null, array('class' => 'btn btn-success')) !!}
-        @if ($doctororder->count())
-            <button class="btn btn-danger" id="delete">
-                {{ trans('quickadmin::templates.templates-view_index-delete_checked') }}
-            </button>
-        @endif
-    </p>
+
+    <h1>
+
+        دستورات پزشک بیمار
+
+    </h1>
+
+    <br/>
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3>اطلاعات بیمار</h3>
+        </div>
+        <div class="panel-body">
+
+            <div class="row">
+                <div class="form-group col-lg-3">
+                    <div class="col-sm-7">
+                        <h4>
+                            شماره پرونده :
+                        </h4>
+                    </div>
+                    <div class="col-sm-5">
+                        <h5> {{ $patient->unitNumber }}</h5>
+                    </div>
+                </div>
+                <div class="form-group col-lg-3">
+                    <div class="col-sm-7">
+                        <h4>
+                            نام و نام خانوادگی :
+                        </h4>
+                    </div>
+                    <div class="col-sm-5">
+                        <h5>{{ $patient->name . " " . $patient->family }}</h5>
+                    </div>
+                </div>
+                <div class="form-group col-lg-2">
+                    <div class="col-sm-6">
+                        <h4>
+                            نام پدر :
+                        </h4>
+                    </div>
+                    <div class="col-sm-6">
+                        <h5>{{ $patient->fatherName }} </h5>
+                    </div>
+                </div>
+
+                <div class="form-group col-lg-3">
+                    <div class="col-sm-6">
+                        <h4>
+                            وضعیت ازدواج :
+                        </h4>
+                    </div>
+                    <div class="col-sm-6">
+                        <h5>{{ $patient->maritalStatus->title }}</h5>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row">
+
+
+                <div class="form-group col-lg-3">
+                    <div class="col-sm-6">
+                        <h4>
+                            تاریخ تولد :
+                        </h4>
+                    </div>
+                    <div class="col-sm-6">
+                        <h5> {{ $patient->dateOfBirth }}</h5>
+                    </div>
+                </div>
+                <div class="form-group col-lg-2">
+                    <div class="col-sm-6">
+                        <h4>
+                            تلفن :
+                        </h4>
+                    </div>
+                    <div class="col-sm-6">
+                        <h5> {{ $patient->phoneNumber }}</h5>
+                    </div>
+                </div>
+                <div class="form-group col-lg-7">
+                    <div class="col-sm-2">
+                        <h4>
+                            آدرس :
+                        </h4>
+                    </div>
+                    <div class="col-sm-10">
+                        <h5>{{ $patient->address }}</h5>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <a href="/admin/doctororder/create/{{ $id  }}" class="btn btn-primary">ثبت دستورات پزشک</a>
+
+    @if ($doctororder->count())
+        <button class="btn btn-danger" id="delete">
+            {{ trans('quickadmin::templates.templates-view_index-delete_checked') }}
+        </button>
+    @endif
+
+    <br/>
+    <br/>
+
 
     @if ($doctororder->count())
         <div class="portlet box green">
@@ -55,6 +156,7 @@
                 </table>
                 {!! Form::open(['route' => 'admin.doctororder.massDelete', 'method' => 'post', 'id' => 'massDelete']) !!}
                 <input type="hidden" id="send" name="toDelete">
+                <input type="hidden" id="patientId" name="patientId" value="{{$id}}">
                 {!! Form::close() !!}
             </div>
         </div>

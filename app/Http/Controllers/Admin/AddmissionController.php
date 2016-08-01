@@ -42,6 +42,7 @@ class AddmissionController extends Controller {
 
 	    $patient = Patient::lists("family", "id")->prepend('Please select', '');
 
+
 	    return view('admin.addmission.create', compact("patient","id"));
 	}
 
@@ -55,7 +56,8 @@ class AddmissionController extends Controller {
 	    
 		Addmission::create($request->all());
 
-		return redirect()->route('admin.addmission.index');
+		$id = $request->get("patient_id");
+		return redirect("/admin/addmission/index/".$id);
 	}
 
 	/**
@@ -82,12 +84,10 @@ class AddmissionController extends Controller {
 	public function update($id, UpdateAddmissionRequest $request)
 	{
 		$addmission = Addmission::findOrFail($id);
-
-        
-
 		$addmission->update($request->all());
 
-		return redirect()->route('admin.addmission.index');
+		$id = $request->get("patient_id");
+		return redirect("/admin/addmission/index/".$id);
 	}
 
 	/**
@@ -99,7 +99,7 @@ class AddmissionController extends Controller {
 	{
 		Addmission::destroy($id);
 
-		return redirect()->route('admin.addmission.index');
+		return redirect("/admin/addmission/index/".$id);
 	}
 
     /**
@@ -117,7 +117,8 @@ class AddmissionController extends Controller {
             Addmission::whereNotNull('id')->delete();
         }
 
-        return redirect()->route('admin.addmission.index');
+		$id = $request->get('patientId');
+		return redirect("/admin/addmission/index/".$id);
     }
 
 }

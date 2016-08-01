@@ -107,7 +107,7 @@ class PatientController extends Controller
 
         $patient->update($request->all());
 
-        return redirect()->route('admin.patient.index');
+        return redirect("admin/patient/".$id."/edit");
     }
 
     /**

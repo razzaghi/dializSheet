@@ -15,95 +15,103 @@ use App\Doctor;
 use App\Nurse;
 
 
-class DoctorOrderController extends Controller {
+class DoctorOrderController extends Controller
+{
 
-	/**
-	 * Display a listing of doctororder
-	 *
+    /**
+     * Display a listing of doctororder
+     *
      * @param Request $request
      *
      * @return \Illuminate\View\View
-	 */
-	public function index(Request $request)
+     */
+    public function index(Request $request, $id)
     {
         $doctororder = DoctorOrder::with("patient")->with("doctor")->with("nurse")->get();
 
-		return view('admin.doctororder.index', compact('doctororder'));
-	}
+        $patient = Patient::find($id);
 
-	/**
-	 * Show the form for creating a new doctororder
-	 *
+        return view('admin.doctororder.index', compact('doctororder', 'patient', 'id'));
+    }
+
+    /**
+     * Show the form for creating a new doctororder
+     *
      * @return \Illuminate\View\View
-	 */
-	public function create()
-	{
-	    $patient = Patient::lists("family", "id")->prepend('Please select', '');
-$doctor = Doctor::lists("family", "id")->prepend('Please select', '');
-$nurse = Nurse::lists("family", "id")->prepend('Please select', '');
+     */
+    public function create($id)
+    {
+        $patient = Patient::lists("family", "id")->prepend('Please select', '');
+        $doctor = Doctor::lists("family", "id")->prepend('Please select', '');
+        $nurse = Nurse::lists("family", "id")->prepend('Please select', '');
 
-	    
-	    return view('admin.doctororder.create', compact("patient", "doctor", "nurse"));
-	}
 
-	/**
-	 * Store a newly created doctororder in storage.
-	 *
+        return view('admin.doctororder.create', compact("patient", "doctor", "nurse",'id'));
+    }
+
+    /**
+     * Store a newly created doctororder in storage.
+     *
      * @param CreateDoctorOrderRequest|Request $request
-	 */
-	public function store(CreateDoctorOrderRequest $request)
-	{
-	    
-		DoctorOrder::create($request->all());
+     */
+    public function store(CreateDoctorOrderRequest $request)
+    {
 
-		return redirect()->route('admin.doctororder.index');
-	}
+        DoctorOrder::create($request->all());
 
-	/**
-	 * Show the form for editing the specified doctororder.
-	 *
-	 * @param  int  $id
+        $id = $request->get("patient_id");
+        return redirect("/admin/doctororder/index/".$id);
+    }
+
+    /**
+     * Show the form for editing the specified doctororder.
+     *
+     * @param  int $id
      * @return \Illuminate\View\View
-	 */
-	public function edit($id)
-	{
-		$doctororder = DoctorOrder::find($id);
-	    $patient = Patient::lists("family", "id")->prepend('Please select', '');
-$doctor = Doctor::lists("family", "id")->prepend('Please select', '');
-$nurse = Nurse::lists("family", "id")->prepend('Please select', '');
+     */
+    public function edit($id)
+    {
+        $doctororder = DoctorOrder::find($id);
+        $patient = Patient::lists("family", "id")->prepend('Please select', '');
+        $doctor = Doctor::lists("family", "id")->prepend('Please select', '');
+        $nurse = Nurse::lists("family", "id")->prepend('Please select', '');
 
-	    
-		return view('admin.doctororder.edit', compact('doctororder', "patient", "doctor", "nurse"));
-	}
 
-	/**
-	 * Update the specified doctororder in storage.
+        return view('admin.doctororder.edit', compact('doctororder', "patient", "doctor", "nurse"));
+    }
+
+    /**
+     * Update the specified doctororder in storage.
      * @param UpdateDoctorOrderRequest|Request $request
      *
-	 * @param  int  $id
-	 */
-	public function update($id, UpdateDoctorOrderRequest $request)
-	{
-		$doctororder = DoctorOrder::findOrFail($id);
+     * @param  int $id
+     */
+    public function update($id, UpdateDoctorOrderRequest $request)
+    {
+        $doctororder = DoctorOrder::findOrFail($id);
 
-        
 
-		$doctororder->update($request->all());
+        $doctororder->update($request->all());
 
-		return redirect()->route('admin.doctororder.index');
-	}
+        $id = $request->get("patient_id");
+        return redirect("/admin/doctororder/index/".$id);
 
-	/**
-	 * Remove the specified doctororder from storage.
-	 *
-	 * @param  int  $id
-	 */
-	public function destroy($id)
-	{
-		DoctorOrder::destroy($id);
+    }
 
-		return redirect()->route('admin.doctororder.index');
-	}
+    /**
+     * Remove the specified doctororder from storage.
+     *
+     * @param  int $id
+     */
+    public function destroy($id)
+    {
+        DoctorOrder::destroy($id);
+
+        $doc = DoctorOrder::find($id);
+
+        return redirect("/admin/doctororder/index/".$doc->patient_id);
+
+    }
 
     /**
      * Mass delete function from index page
@@ -120,7 +128,9 @@ $nurse = Nurse::lists("family", "id")->prepend('Please select', '');
             DoctorOrder::whereNotNull('id')->delete();
         }
 
-        return redirect()->route('admin.doctororder.index');
+        $id = $request->get("patientId");
+        return redirect("/admin/doctororder/index/".$id);
+
     }
 
 }
